@@ -505,7 +505,10 @@
 
   function sayYes() {
     launchConfetti();
-    currentAudio.pause();
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
     playYesSound();
     document.getElementById('question-screen').style.display = 'none';
     document.getElementById('happy-screen').style.display = 'block';
